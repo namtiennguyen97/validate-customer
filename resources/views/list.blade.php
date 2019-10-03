@@ -14,12 +14,16 @@
         <th>STT</th>
         <th>Name</th>
         <th>Age</th>
+        <th></th>
+        <th></th>
     </tr>
     @foreach($customer as $key=>$value)
         <tr>
             <td>{{++$key}}</td>
             <td>{{$value->name}}</td>
             <td>{{$value->age}}</td>
+            <td><a href="{{route('customers.edit', $value->id)}}">Edit</a></td>
+            <td><a href="{{route('customers.destroy',$value->id)}}" onclick="return confirm('Do you want to delete?')">Delete</a></td>
         </tr>
         @endforeach
 </table>
